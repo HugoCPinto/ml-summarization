@@ -1,8 +1,18 @@
+import json
+
 from service import summarization_service
 
-def controller():
-    text = summarization_service.collect_data()
-    summarization_service.tokenize_data(text)
+
+def summarization_controller(request, lang):
+    if request == '':
+        text = summarization_service.collect_data()
+    else:
+        text = request
+
+    summary = summarization_service.tokenize_data(text, lang)
+    print(summary)
+    return json.dumps(summary)
+
 
 if __name__ == '__main__':
-    controller()
+    print(summarization_controller(''))

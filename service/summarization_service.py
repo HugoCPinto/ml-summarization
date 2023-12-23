@@ -20,11 +20,11 @@ def collect_data():
         """
     return text
 
-def tokenize_data(data):
+def tokenize_data(data: str, lang: str):
     print(data)
 
     tokens = word_tokenize(data)
-    stop_words = stopwords.words('english')
+    stop_words = stopwords.words(lang)
 
     #print(tokens)
     #print(stop_words)
@@ -68,4 +68,4 @@ def tokenize_data(data):
     final_summary = [word for word in summary]
     summary = ' '.join(final_summary)
 
-    print(summary)
+    return summary
